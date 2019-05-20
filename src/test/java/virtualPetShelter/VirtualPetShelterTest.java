@@ -57,5 +57,10 @@ public class VirtualPetShelterTest {
 		assertThat(adoptedPet, is(nullValue()));
 		
 	}
+	@Test
+	public void shouldBeAbleToInteractWithPet() {
+		VirtualPet singlePet = underTest.findVirtualPet("Rutti");
+		singlePet.bathroom(5);
+	}
 
 }

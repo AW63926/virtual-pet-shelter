@@ -143,34 +143,6 @@ public class VirtualPet {
 		printStatisticToConsole();
 	}
 
-	// This menu should not be implemented until after the build of the
-	// VirtualPetShelter
-//	public void switchStatement() {
-//		if(welcomeCount == 0) {
-//			welcome();
-//		}
-//		boolean menuLoop = true;
-//		while (menuLoop) {
-//			switch (userSelection) {
-//			case "1":
-//				// feed the pets eat() loop through all pets and feed them?
-//				break;
-//			case "2":
-//				// Water the pets drink() loop through and feed all the pets?
-//				break;
-//			case "3":
-//				// Play with a pet. Select a pet from a collection to play with
-//				break;
-//			case "4":
-//				// Adopt a pet. Select a pet from the collection to adopt/remove from collection
-//				break;
-//			case "5":
-//				// admit a pet/ Add a new pet to the collection
-//				break;
-//			case "quit":
-//				System.exit(0);
-//			}
-//		}
-//	}
+	
 
 }
