@@ -79,7 +79,14 @@ public class VirtualPetShelter {
 				// this will be where the play method is called on all pets in the collection
 				break;
 			case "4":
-				System.out.println("Thanks for adopting a pet!");
+				System.out.println("Which pet would you like to adopt?");
+				for(String key : pets.keySet()) {
+					System.out.println(key);
+				}
+				String userChoice = input.next();
+				VirtualPet userPet = findVirtualPet(userChoice);
+				removeAVirtualPet(userPet);
+				System.out.println("Thanks for adopting " + userChoice + "!!");
 				// this will be where the remove method is called on a key item pet in the
 				// collection using petname
 				break;
@@ -105,7 +112,7 @@ public class VirtualPetShelter {
 				break;
 			case "8":
 				//this will check on the pets
-				getAllPets();
+				
 			case "9":
 				// this will call menuItems()
 				menuItems();
