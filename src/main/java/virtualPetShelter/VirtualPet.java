@@ -123,11 +123,43 @@ public class VirtualPet {
 	public String getPetType() {
 		return this.petType;
 	}
+	public void valueChecker() {
+		int hungerValue = getHealthCount();
+		if(hungerValue >= 10) {
+			System.out.println(getPetName() + " needs to be fed right away!!!");
+		}
+		int thirstValue = getThirstLevel();
+		if(thirstValue >= 10) {
+			System.out.println(getPetName() + " is in dire need of a drink!!");
+		}
+		int boredomValue = getBoredomCount();
+		if(boredomValue >= 10) {
+			System.out.println(getPetName() + " is bored to TEARS!!! " + getPetName() + " needs to play!!");
+		}
+		int excretionValue = getExcretionCount();
+		if(excretionValue >= 10) {
+			System.out.println(getPetName() + " has made a mess on the floor!!  Make sure to take the pets outside.");
+		}
+	}
 
 	public int generateRandomNumber() {
 		int random = (int) (Math.random() * 10);
 		// System.out.println(random);
 		return random;
+	}
+	public int generateRandBetweenZeroAndTwo() {
+		int upper = 3;
+		int lower = 0;
+		int randNum = (int) (Math.random() * (upper - lower));
+		//System.out.println(randNum);
+		return randNum;
+	}
+	public void tick() {
+		this.hungerCounter += generateRandBetweenZeroAndTwo();
+		this.thirstCounter += generateRandBetweenZeroAndTwo();
+		this.boredomCount += generateRandBetweenZeroAndTwo();
+		this.excretionCounter += generateRandBetweenZeroAndTwo();
+		
 	}
 
 	public void setInitialValuesToRandom() {

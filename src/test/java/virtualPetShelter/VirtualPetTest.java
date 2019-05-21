@@ -172,4 +172,8 @@ public class VirtualPetTest {
 		int random = underTest.generateRandomNumber();
 		assertEquals(null, random);
 	}
+	@Test
+	public void shouldGenerateRandomBetweenZeroAndThree() {
+		underTest.generateRandBetweenZeroAndTwo();
+	}
 }

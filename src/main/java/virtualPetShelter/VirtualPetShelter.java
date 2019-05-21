@@ -67,18 +67,19 @@ public class VirtualPetShelter {
 				System.out.println("The pets are all being fed");
 				for(String key : pets.keySet()) {
 					VirtualPet keyPet = findVirtualPet(key);
-					keyPet.eat(3);
+					keyPet.eat(4);
 					if(keyPet.getHungerLevel() < 0) {
 						keyPet.setHungerCounter(0);
 					}
 				}
+				
 				break;
 			case "2":
 				// this will be where the drink method is called on all pets in the collection
 				System.out.println("The pets are all getting a drink");
 				for(String key : pets.keySet()) {
 					VirtualPet keyPet = findVirtualPet(key);
-					keyPet.drink(2);
+					keyPet.drink(3);
 					if(keyPet.getThirstLevel() < 0) {
 						keyPet.setThirstLevel(0);
 					}
@@ -125,7 +126,7 @@ public class VirtualPetShelter {
 				System.out.println("Which pet are you taking on a Bathroom break?");
 				String petBathroomName = input.next();
 				VirtualPet petBathroom = findVirtualPet(petBathroomName);
-				petBathroom.bathroom(2);
+				petBathroom.bathroom(3);
 				if(petBathroom.getExcretionCount() < 0) {
 					petBathroom.setExcretionCounter(0);
 				}
@@ -144,8 +145,14 @@ public class VirtualPetShelter {
 					System.out.println("----------------------------------------------");
 					System.out.println(key + "\t|" + keyPet.getPetType() + "\t|" + keyPet.getHungerLevel() + "\t|" + keyPet.getThirstLevel() + "\t|" + keyPet.getBoredomCount()
 					+ "\t|" + keyPet.getExcretionCount() );
+					keyPet.tick();
+					
 				}
 				System.out.println("*************************************************************");
+				for(String key : pets.keySet()) {
+					VirtualPet keyPet2 = findVirtualPet(key);
+					keyPet2.valueChecker();
+				}
 				break;
 			case "9":
 				// this will call menuItems()
