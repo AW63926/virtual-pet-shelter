@@ -49,11 +49,11 @@ public class VirtualPetShelter {
 		System.out.println("3.  Enter 3 to play with a pet?");
 		System.out.println("4.  Enter 4 to Adopt a pet?");
 		System.out.println("5.  Enter 5 to admit a pet?");
-		System.out.println("6.  Enter 6 to take the pets on a bathroom break.");
+		System.out.println("6.  Enter 6 to take a pet on a bathroom break.");
 		System.out.println("7.  Enter 7 to clean up after the pets.");
 		System.out.println("8.  Enter 8 to check on all of the pets.");
 		System.out.println("9.  Enter 9 to display the menu.");
-		System.out.println("10.  Enter \"Quit\" to exit.");
+		System.out.println("10. Enter \"Quit\" to exit.");
 	}
 
 	public void shelterSwitchStatement() {
@@ -63,22 +63,40 @@ public class VirtualPetShelter {
 			String switchValue = input.next();
 			switch (switchValue.toLowerCase()) {
 			case "1":
-				System.out.println("The pets are all being fed");
 				// this will be where the eat method is called on all pets in the collection
+				System.out.println("The pets are all being fed");
+				for(String key : pets.keySet()) {
+					VirtualPet keyPet = findVirtualPet(key);
+					keyPet.eat(3);
+					if(keyPet.getHungerLevel() < 0) {
+						keyPet.setHungerCounter(0);
+					}
+				}
 				break;
 			case "2":
-				System.out.println("The pets are all getting a drink");
 				// this will be where the drink method is called on all pets in the collection
+				System.out.println("The pets are all getting a drink");
+				for(String key : pets.keySet()) {
+					VirtualPet keyPet = findVirtualPet(key);
+					keyPet.drink(2);
+					if(keyPet.getThirstLevel() < 0) {
+						keyPet.setThirstLevel(0);
+					}
+				}
 				break;
 			case "3":
-				System.out.println("The pets are playing");
-				System.out.println("Would you like to find a specific pet?  Enter the name");
+				//Play with a pet
+				System.out.println("Which pet would you like to play with?");
 				String petString = input.next();
 				VirtualPet myPet = findVirtualPet(petString);
-				System.out.println(myPet.getPetName() + ": Boredom Count " + myPet.getBoredomCount());
-				// this will be where the play method is called on all pets in the collection
+				myPet.play(5);
+				if(myPet.getBoredomCount() < 0) {
+					myPet.setBoredomCounter(0);
+				}
+				System.out.println(myPet.getPetName() + " is having fun, and Boredom has been reduced to " + myPet.getBoredomCount());
 				break;
 			case "4":
+				//remove pet
 				System.out.println("Which pet would you like to adopt?");
 				for(String key : pets.keySet()) {
 					System.out.println(key);
@@ -87,10 +105,10 @@ public class VirtualPetShelter {
 				VirtualPet userPet = findVirtualPet(userChoice);
 				removeAVirtualPet(userPet);
 				System.out.println("Thanks for adopting " + userChoice + "!!");
-				// this will be where the remove method is called on a key item pet in the
-				// collection using petname
+				
 				break;
 			case "5":
+				//Add a pet to shelter
 				System.out.println("What is the name of the pet?");
 				String petName = input.next();
 				System.out.println("What kind of pet is the pet?");
@@ -99,12 +117,19 @@ public class VirtualPetShelter {
 				addVirtualPet(petObject);
 				petObject.setInitialValuesToRandom();
 				System.out.println("We will take good care of this pet and see that a home is found");
-				// this will be where the add method adds a pet to the collection. The pet
-				// object will still have to be initialized, so dont get crazy
+				
+				
 				break;
 			case "6":
-				//take the pets on a bathroom break
-				System.out.println("Taking the pets on a bathroom break");
+				//take a pet on a bathroom break
+				System.out.println("Which pet are you taking on a Bathroom break?");
+				String petBathroomName = input.next();
+				VirtualPet petBathroom = findVirtualPet(petBathroomName);
+				petBathroom.bathroom(2);
+				if(petBathroom.getExcretionCount() < 0) {
+					petBathroom.setExcretionCounter(0);
+				}
+				System.out.println(petBathroom.getPetName() + " has gone to the bathroom and Bathroom Level is now " + petBathroom.getExcretionCount());
 				break;
 			case "7":
 				//this will clean up after the pets
@@ -112,7 +137,16 @@ public class VirtualPetShelter {
 				break;
 			case "8":
 				//this will check on the pets
-				
+				System.out.println("Name      |Type    |Hunger |Thirst |Boredom |Bathroom |");
+				for(String key : pets.keySet()) {
+					//System.out.print(key);
+					VirtualPet keyPet = findVirtualPet(key);
+					System.out.println("----------------------------------------------");
+					System.out.println(key + "    |" + keyPet.getPetType() + "     |" + keyPet.getHungerLevel() + "     |" + keyPet.getThirstLevel() + "       |" + keyPet.getBoredomCount()
+					+ "        |" + keyPet.getExcretionCount() );
+				}
+				System.out.println("*************************************************************");
+				break;
 			case "9":
 				// this will call menuItems()
 				menuItems();

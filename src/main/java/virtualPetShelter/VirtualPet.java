@@ -21,6 +21,9 @@ public class VirtualPet {
 		this.hungerCounter += hungerValue;
 		return this.hungerCounter;
 	}
+	public void setHungerCounter(int hungerLevel) {
+		this.hungerCounter = hungerLevel;
+	}
 
 	public int getHungerLevel() {
 		// TODO Auto-generated method stub
@@ -35,6 +38,9 @@ public class VirtualPet {
 	public int getThirstLevel() {
 		return this.thirstCounter;
 	}
+	public void setThirstLevel(int thirstLevel) {
+		this.thirstCounter = thirstLevel;
+	}
 
 	public void increaseBoredomCounter(int boredomValue) {
 		this.boredomCount += boredomValue;
@@ -43,6 +49,9 @@ public class VirtualPet {
 
 	public int getBoredomCount() {
 		return this.boredomCount;
+	}
+	public void setBoredomCounter(int boredomValue) {
+		this.boredomCount = boredomValue;
 	}
 
 	public void increaseHealthCounter(int healthValue) {
@@ -57,6 +66,9 @@ public class VirtualPet {
 	public void increaseExcretionCounter(int excretionValue) {
 		this.excretionCounter += excretionValue;
 
+	}
+	public void setExcretionCounter(int excreteValue) {
+		this.excretionCounter = excreteValue;
 	}
 
 	public void eat(int hungerValue) {
@@ -125,22 +137,19 @@ public class VirtualPet {
 		increaseBoredomCounter(boredom);
 		int hunger = generateRandomNumber();
 		increaseHungerLevel(hunger);
+		int thirst = generateRandomNumber();
+		increaseThirstValue(thirst);
 		int excretionValue = generateRandomNumber();
 		increaseExcretionCounter(excretionValue);
 		int health = generateRandomNumber();
 		increaseHealthCounter(health);
 	}
 
-	public void printStatisticToConsole() {
-		System.out.println("Name     |Hunger | Thirst | Boredom | Sleepy |");
-		System.out.println("----------------------------------------------");
-		System.out.println(getPetName() + "     |   " + getHungerLevel() + "   |  " + getThirstLevel() + "     |  "
-				+ getBoredomCount() + "      |  " + getSleepyCount());
-	}
+	
 
 	public void gamePlayVirtualPet() {
 		setInitialValuesToRandom();
-		printStatisticToConsole();
+		
 	}
 
 	
