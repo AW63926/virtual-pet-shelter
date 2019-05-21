@@ -137,13 +137,13 @@ public class VirtualPetShelter {
 				break;
 			case "8":
 				//this will check on the pets
-				System.out.println("Name      |Type    |Hunger |Thirst |Boredom |Bathroom |");
+				System.out.println("Name\t|Type\t|Hunger\t|Thirst\t|Boredom |Bathroom|");
 				for(String key : pets.keySet()) {
 					//System.out.print(key);
 					VirtualPet keyPet = findVirtualPet(key);
 					System.out.println("----------------------------------------------");
-					System.out.println(key + "    |" + keyPet.getPetType() + "     |" + keyPet.getHungerLevel() + "     |" + keyPet.getThirstLevel() + "       |" + keyPet.getBoredomCount()
-					+ "        |" + keyPet.getExcretionCount() );
+					System.out.println(key + "\t|" + keyPet.getPetType() + "\t|" + keyPet.getHungerLevel() + "\t|" + keyPet.getThirstLevel() + "\t|" + keyPet.getBoredomCount()
+					+ "\t|" + keyPet.getExcretionCount() );
 				}
 				System.out.println("*************************************************************");
 				break;
