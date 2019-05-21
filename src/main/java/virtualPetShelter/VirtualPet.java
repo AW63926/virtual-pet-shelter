@@ -4,7 +4,7 @@ public class VirtualPet {
 	private int hungerCounter;
 	private int thirstCounter;
 	private int boredomCount;
-	private int healthCount;
+	
 	private int excretionCounter;
 	private int sleepyCounter;
 	private String petName;
@@ -54,14 +54,9 @@ public class VirtualPet {
 		this.boredomCount = boredomValue;
 	}
 
-	public void increaseHealthCounter(int healthValue) {
-		this.healthCount += healthValue;
+	
 
-	}
-
-	public int getHealthCount() {
-		return this.healthCount;
-	}
+	
 
 	public void increaseExcretionCounter(int excretionValue) {
 		this.excretionCounter += excretionValue;
@@ -93,18 +88,7 @@ public class VirtualPet {
 		this.boredomCount -= boredomValue;
 	}
 
-	public void increaseSleepyCounter(int sleepyValue) {
-		this.sleepyCounter += sleepyValue;
-
-	}
-
-	public int getSleepyCount() {
-		return this.sleepyCounter;
-	}
-
-	public void sleep(int sleepValue) {
-		this.sleepyCounter -= sleepValue;
-	}
+	
 
 	public void givePetName(String petName) {
 		this.petName = petName;
@@ -124,7 +108,7 @@ public class VirtualPet {
 		return this.petType;
 	}
 	public void valueChecker() {
-		int hungerValue = getHealthCount();
+		int hungerValue = getHungerLevel();
 		if(hungerValue >= 10) {
 			System.out.println(getPetName() + " needs to be fed right away!!!");
 		}
@@ -163,8 +147,6 @@ public class VirtualPet {
 	}
 
 	public void setInitialValuesToRandom() {
-		int sleepValue = generateRandomNumber();
-		increaseSleepyCounter(sleepValue);
 		int boredom = generateRandomNumber();
 		increaseBoredomCounter(boredom);
 		int hunger = generateRandomNumber();
@@ -173,8 +155,7 @@ public class VirtualPet {
 		increaseThirstValue(thirst);
 		int excretionValue = generateRandomNumber();
 		increaseExcretionCounter(excretionValue);
-		int health = generateRandomNumber();
-		increaseHealthCounter(health);
+		
 	}
 
 	
