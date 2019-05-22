@@ -102,6 +102,10 @@ public class VirtualPetShelter {
 				for(String key : pets.keySet()) {
 					System.out.println(key);
 				}
+				if(pets.isEmpty()) {
+					System.out.println("Sorry, there are no pets in the shelter to adopt.");
+					break;
+				}
 				String userChoice = input.next();
 				VirtualPet userPet = findVirtualPet(userChoice);
 				removeAVirtualPet(userPet);
